@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://bv8yndptb05bi"]
+
+[ext_resource type="Script" path="res://battle/battle.gd" id="1_ewjkq"]
+[ext_resource type="Texture2D" uid="uid://dxsdlxwns6dx8" path="res://art/Mon_053_d_front.png" id="2_l51q0"]
+[ext_resource type="Texture2D" uid="uid://bo673eqpnbhgq" path="res://art/Mon_052_b_back.png" id="3_emcef"]
+[ext_resource type="Script" path="res://battle/battle_unit.gd" id="3_ubyqf"]
+
+[sub_resource type="Animation" id="Animation_06ced"]
+resource_name = "pan"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-960, 540), Vector2(960, 540), Vector2(960, 540)]
+}
+
+[sub_resource type="Animation" id="Animation_vl2y2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-960, 540)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tgvhm"]
+_data = {
+"RESET": SubResource("Animation_vl2y2"),
+"pan": SubResource("Animation_06ced")
+}
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_ewjkq")
+
+[node name="background" type="ParallaxBackground" parent="."]
+
+[node name="enemy" type="ParallaxLayer" parent="background"]
+motion_scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="background/enemy"]
+position = Vector2(708, -184)
+scale = Vector2(6.042, 6)
+texture = ExtResource("2_l51q0")
+centered = false
+
+[node name="Player" type="Marker2D" parent="."]
+position = Vector2(393, 955)
+
+[node name="PlayerBattleUnit" type="Node2D" parent="Player"]
+script = ExtResource("3_ubyqf")
+
+[node name="Enemy" type="Marker2D" parent="."]
+position = Vector2(1245, 896)
+
+[node name="EnemyBattleUnit" type="Node2D" parent="Enemy"]
+script = ExtResource("3_ubyqf")
+
+[node name="foreground" type="ParallaxBackground" parent="."]
+layer = 10
+
+[node name="player" type="ParallaxLayer" parent="foreground"]
+motion_scale = Vector2(1.2, 1.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="foreground/player"]
+position = Vector2(-1416, -1043)
+scale = Vector2(15, 15)
+texture = ExtResource("3_emcef")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-960, 540)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "pan"
+libraries = {
+"": SubResource("AnimationLibrary_tgvhm")
+}
