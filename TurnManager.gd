@@ -1,3 +1,4 @@
+# just manages the STATE of whose turn it is
 extends Resource
 class_name TurnManager
 
@@ -17,9 +18,9 @@ var turn: int = ALLY_TURN:
         enemy_turn_started.emit()
 
 
-signal ally_turn_started()
-signal ally_turn_ended()
-signal enemy_turn_started()
+signal ally_turn_started
+signal ally_turn_ended
+signal enemy_turn_started
 
 func start() -> void:
   self.turn = ALLY_TURN
