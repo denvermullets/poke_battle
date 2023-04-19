@@ -1,11 +1,8 @@
-# just manages the STATE of whose turn it is
 extends Resource
 class_name TurnManager
 
 enum { ALLY_TURN, ENEMY_TURN }
 
-# setters and getters can handle preconfiguring value before being set
-# or tweaking stuff so that it's right
 var turn: int = ALLY_TURN:
   get:
     return turn
@@ -15,6 +12,7 @@ var turn: int = ALLY_TURN:
       ALLY_TURN:
         ally_turn_started.emit()
       ENEMY_TURN:
+        ally_turn_ended.emit()
         enemy_turn_started.emit()
 
 
@@ -26,5 +24,6 @@ func start() -> void:
   self.turn = ALLY_TURN
 
 func advance_turn() -> void:
+  print('advancing turn')
   # if value is 0, set to 1. if value is 1, set to 0 - binary operation
   self.turn = int(self.turn + 1) & 1

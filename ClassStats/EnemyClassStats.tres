@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ClassStats" load_steps=2 format=3 uid="uid://1urq1rm5mo2b"]
+
+[ext_resource type="Script" path="res://ClassStats/ClassStats.gd" id="1_u4vsk"]
+
+[resource]
+script = ExtResource("1_u4vsk")
+name = "Jon Bon Giovini"
+max_health = 25
+attack = 8
+defense = 45
+speed = 8

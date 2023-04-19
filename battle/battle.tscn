@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bv8yndptb05bi"]
+[gd_scene load_steps=10 format=3 uid="uid://bv8yndptb05bi"]
 
 [ext_resource type="Script" path="res://battle/battle.gd" id="1_ewjkq"]
 [ext_resource type="Texture2D" uid="uid://dxsdlxwns6dx8" path="res://art/Mon_053_d_front.png" id="2_l51q0"]
 [ext_resource type="Texture2D" uid="uid://bo673eqpnbhgq" path="res://art/Mon_052_b_back.png" id="3_emcef"]
 [ext_resource type="Script" path="res://battle/battle_unit.gd" id="3_ubyqf"]
+[ext_resource type="Resource" uid="uid://dhd4hycfylgd2" path="res://ClassStats/PlayerClassStats.tres" id="4_qamhv"]
+[ext_resource type="Resource" uid="uid://1urq1rm5mo2b" path="res://ClassStats/EnemyClassStats.tres" id="5_pua2k"]
 
 [sub_resource type="Animation" id="Animation_vl2y2"]
 length = 0.001
@@ -61,12 +63,14 @@ position = Vector2(393, 955)
 
 [node name="PlayerBattleUnit" type="Node2D" parent="Player"]
 script = ExtResource("3_ubyqf")
+stats = ExtResource("4_qamhv")
 
 [node name="Enemy" type="Marker2D" parent="."]
 position = Vector2(1245, 896)
 
 [node name="EnemyBattleUnit" type="Node2D" parent="Enemy"]
 script = ExtResource("3_ubyqf")
+stats = ExtResource("5_pua2k")
 
 [node name="foreground" type="ParallaxBackground" parent="."]
 layer = 10

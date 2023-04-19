@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://t37a8ywr5a15"]
+
+[ext_resource type="Texture2D" uid="uid://bltcfikbooxcv" path="res://UI/UI_Hologram_Fillbar_05a.png" id="1_nrt88"]
+[ext_resource type="Script" path="res://UI/ValueBar.gd" id="2_xwmb1"]
+[ext_resource type="Texture2D" uid="uid://c2hyltyv6ru06" path="res://UI/UI_Hologram_Fillbar_Filler_03a.png" id="3_ppptf"]
+
+[node name="ValueBar" type="TextureRect"]
+offset_right = 175.0
+offset_bottom = 73.0
+scale = Vector2(3, 3)
+texture = ExtResource("1_nrt88")
+script = ExtResource("2_xwmb1")
+
+[node name="ActualValue" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = -14.0
+offset_top = 2.0
+offset_right = 188.0
+offset_bottom = 73.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = ExtResource("3_ppptf")
