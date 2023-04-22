@@ -18,12 +18,18 @@ func _ready():
   turnManager.start()
 
 func _on_ally_turn_started() -> void:
+  if is_instance_valid(player_battle_unit) == false or player_battle_unit.is_queued_for_deletion():
+    return
+
   print('Ally turn started')
   timer.start(1.0)
   await timer.timeout
   player_battle_unit.melee_attack(player_battle_unit)
 
 func _on_enemy_turn_started() -> void:
+  if is_instance_valid(enemy_battle_unit) == false or enemy_battle_unit.is_queued_for_deletion():
+    return
+
   print("Enemy turn started")
   timer.start(1.0)
   await timer.timeout
