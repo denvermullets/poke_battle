@@ -13,19 +13,21 @@ func _ready():
   turnManager.ally_turn_started.connect(_on_ally_turn_started)
   #  turnManager.ally_turn_ended.connect(_on_ally_turn_ended)
   turnManager.enemy_turn_started.connect(_on_enemy_turn_started)
+  turnStack.turn_over.connect(_on_turn_over)
 
   turnManager.start()
-  turnStack.turn_over.connect(_on_turn_over)
 
 func _on_ally_turn_started() -> void:
   print('Ally turn started')
+  timer.start(1.0)
+  await timer.timeout
   player_battle_unit.melee_attack(player_battle_unit)
-#  turnManager.advance_turn()
 
 func _on_enemy_turn_started() -> void:
   print("Enemy turn started")
+  timer.start(1.0)
+  await timer.timeout
   enemy_battle_unit.melee_attack(enemy_battle_unit)
-#  turnManager.advance_turn()
 
 func _on_turn_over() -> void:
   print('turn over')
