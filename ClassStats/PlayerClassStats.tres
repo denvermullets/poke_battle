@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="ClassStats" load_steps=2 format=3 uid="uid://dhd4hycfylgd2"]
+[gd_resource type="Resource" script_class="PlayerClassStats" load_steps=2 format=3 uid="uid://dhd4hycfylgd2"]
 
-[ext_resource type="Script" path="res://ClassStats/ClassStats.gd" id="1_7brb3"]
+[ext_resource type="Script" path="res://ClassStats/PlayerClassStats.gd" id="1_70deq"]
 
 [resource]
-script = ExtResource("1_7brb3")
+script = ExtResource("1_70deq")
 name = "John Tesh"
-max_health = 10
 attack = 10
-defense = 10
-speed = 5
+defense = 20
+speed = 8
+max_health = 25

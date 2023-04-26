@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_u4vsk")
-name = "Jon Bon Giovini"
-max_health = 25
-attack = 8
-defense = 45
+name = "Enemy"
+attack = 10
+defense = 8
 speed = 8
+max_health = 8

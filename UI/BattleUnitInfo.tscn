@@ -1,16 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://4y6mhnnjxk78"]
+[gd_scene load_steps=5 format=3 uid="uid://4y6mhnnjxk78"]
 
 [ext_resource type="PackedScene" uid="uid://t37a8ywr5a15" path="res://UI/ValueBar.tscn" id="1_3pa2u"]
 [ext_resource type="Script" path="res://UI/BattleUnitInfo.gd" id="1_le8kb"]
+[ext_resource type="Theme" uid="uid://dtfljjvv3jual" path="res://UI/DefaultTheme.tres" id="1_wxkoy"]
+[ext_resource type="Texture2D" uid="uid://drhf23lrt0o0f" path="res://UI/UI_Hologram_Fillbar_Filler_04a.png" id="3_l8gor"]
 
 [node name="BattleUnitInfo" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 536.0
 offset_bottom = 218.0
+theme = ExtResource("1_wxkoy")
 script = ExtResource("1_le8kb")
+
+[node name="Shadow" type="TextureRect" parent="."]
+self_modulate = Color(0.741176, 0.741176, 0.741176, 1)
+layout_mode = 0
+offset_left = 32.0
+offset_top = -32.0
+offset_right = 512.0
+offset_bottom = 344.0
+texture = ExtResource("3_l8gor")
 
 [node name="HealthBar" parent="." instance=ExtResource("1_3pa2u")]
 layout_mode = 0
 offset_top = -3.0
 offset_bottom = 70.0
+
+[node name="LevelLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 184.0
+offset_right = 484.0
+offset_bottom = 224.0
+scale = Vector2(1.5, 1.5)
+text = "Level: 100"
+uppercase = true

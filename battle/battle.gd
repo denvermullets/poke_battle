@@ -7,8 +7,12 @@ var turnStack: TurnStack = ReferenceStash.turnStack
 @onready var enemy_battle_unit: BattleUnit = $Enemy/EnemyBattleUnit
 @onready var animation_player = $AnimationPlayer
 @onready var timer = $Timer
+@onready var player_battle_unit_info = $BattleUI/PlayerBattleUnitInfo
+@onready var enemy_battle_unit_info = $BattleUI/EnemyBattleUnitInfo
 
 func _ready():
+  player_battle_unit_info.stats = player_battle_unit.stats
+  enemy_battle_unit_info.stats = enemy_battle_unit.stats
   await animation_player.animation_finished
   turnManager.ally_turn_started.connect(_on_ally_turn_started)
   #  turnManager.ally_turn_ended.connect(_on_ally_turn_ended)
@@ -36,6 +40,5 @@ func _on_enemy_turn_started() -> void:
   enemy_battle_unit.melee_attack(enemy_battle_unit)
 
 func _on_turn_over() -> void:
-  print('turn over')
   turnManager.advance_turn()
 

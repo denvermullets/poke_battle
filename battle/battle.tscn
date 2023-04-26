@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bv8yndptb05bi"]
+[gd_scene load_steps=11 format=3 uid="uid://bv8yndptb05bi"]
 
 [ext_resource type="Script" path="res://battle/battle.gd" id="1_ewjkq"]
 [ext_resource type="Texture2D" uid="uid://dxsdlxwns6dx8" path="res://art/Mon_053_d_front.png" id="2_l51q0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://battle/battle_unit.gd" id="3_ubyqf"]
 [ext_resource type="Resource" uid="uid://dhd4hycfylgd2" path="res://ClassStats/PlayerClassStats.tres" id="4_qamhv"]
 [ext_resource type="Resource" uid="uid://1urq1rm5mo2b" path="res://ClassStats/EnemyClassStats.tres" id="5_pua2k"]
+[ext_resource type="PackedScene" uid="uid://4y6mhnnjxk78" path="res://UI/BattleUnitInfo.tscn" id="7_8fraw"]
 
 [sub_resource type="Animation" id="Animation_vl2y2"]
 length = 0.001
@@ -79,7 +80,7 @@ layer = 10
 motion_scale = Vector2(1.2, 1.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="foreground/player"]
-position = Vector2(-1416, -1043)
+position = Vector2(-1410, -960)
 scale = Vector2(15, 15)
 texture = ExtResource("3_emcef")
 centered = false
@@ -95,3 +96,17 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="BattleUI" type="CanvasLayer" parent="."]
+
+[node name="PlayerBattleUnitInfo" parent="BattleUI" instance=ExtResource("7_8fraw")]
+offset_left = 7.0
+offset_top = -38.0
+offset_right = 543.0
+offset_bottom = 180.0
+
+[node name="EnemyBattleUnitInfo" parent="BattleUI" instance=ExtResource("7_8fraw")]
+offset_left = 1376.0
+offset_top = 899.0
+offset_right = 1912.0
+offset_bottom = 1117.0

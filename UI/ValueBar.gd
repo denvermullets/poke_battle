@@ -6,19 +6,20 @@ signal animation_finished
 
 var bar_value: float = 0.0
 
-func _ready():
-  await animate_bar(95, 100)
-  await animate_bar(75, 100)
-  await animate_bar(25, 100)
-  await animate_bar(75, 100)
-  await animate_bar(15, 100)
-  await animate_bar(50, 100)
+#func _ready():
+#  await animate_bar(95, 100)
+#  await animate_bar(75, 100)
+#  await animate_bar(25, 100)
+#  await animate_bar(75, 100)
+#  await animate_bar(15, 100)
+#  await animate_bar(50, 100)
 
 
 func set_bar_value(value: float, max_value: float) -> void:
   bar_value = (value / max_value) * 100.0
 
 func set_value(value: float, max_value: float) -> void:
+  print('hi?')
   set_bar_value(value, max_value)
   actual_value.value = bar_value
 
