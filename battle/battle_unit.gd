@@ -11,18 +11,16 @@ func deal_damage(target: BattleUnit) -> void:
 
 func melee_attack(target: BattleUnit) -> void:
   turnStack.add_node(self)
-  # do stuff \\\\\
   deal_damage(target)
   target.take_hit(self)
-  # do stuff \\\\\
   turnStack.remove_node(self)
 
 func take_hit(attacker: BattleUnit) -> void:
   turnStack.add_node(self)
-  # do stuff \\\\\
+
   if stats.health == 0:
     turnStack.remove_node(self)
     queue_free()
     return
-  # do stuff \\\\\
+
   turnStack.remove_node(self)

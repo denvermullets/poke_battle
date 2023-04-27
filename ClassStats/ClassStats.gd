@@ -13,9 +13,10 @@ class_name ClassStats
 signal health_changed
 signal max_health_changed
 signal no_health
+signal level_changed
 
-var level := 1
-var health := 1:
+var level: int = 1
+var health: int = 1:
   get:
     return health
   set(value):

@@ -21,6 +21,17 @@ func _ready():
 
   turnManager.start()
 
+func battle_won() -> void:
+  timer.start(0.5)
+  await timer.timeout
+  var previous_level: int = player_battle_unit.stats.level
+  player_battle_unit.stats.experience += 205
+  if player_battle_unit.stats.level > previous_level:
+    print('level up')
+  timer.start(0.5)
+  await timer.timeout
+
+
 func _on_ally_turn_started() -> void:
   if is_instance_valid(player_battle_unit) == false or player_battle_unit.is_queued_for_deletion():
     return
@@ -32,6 +43,10 @@ func _on_ally_turn_started() -> void:
 
 func _on_enemy_turn_started() -> void:
   if is_instance_valid(enemy_battle_unit) == false or enemy_battle_unit.is_queued_for_deletion():
+    await battle_won()
+    timer.start(1.0)
+    await timer.timeout
+    queue_free()
     return
 
   print("Enemy turn started")
