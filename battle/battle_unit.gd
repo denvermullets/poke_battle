@@ -15,7 +15,7 @@ func melee_attack(target: BattleUnit) -> void:
   target.take_hit(self)
   turnStack.remove_node(self)
 
-func take_hit(attacker: BattleUnit) -> void:
+func take_hit(_attacker: BattleUnit) -> void:
   turnStack.add_node(self)
 
   if stats.health == 0:

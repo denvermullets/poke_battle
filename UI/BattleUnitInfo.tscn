@@ -13,7 +13,7 @@ offset_bottom = 218.0
 theme = ExtResource("1_wxkoy")
 script = ExtResource("1_le8kb")
 
-[node name="Shadow" type="TextureRect" parent="."]
+[node name="Banner" type="TextureRect" parent="."]
 self_modulate = Color(0.741176, 0.741176, 0.741176, 1)
 layout_mode = 0
 offset_left = 32.0

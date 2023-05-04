@@ -1,6 +1,35 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dtfljjvv3jual"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dtfljjvv3jual"]
 
 [ext_resource type="FontVariation" uid="uid://ckc8i00srxeg5" path="res://UI/CustomFont.tres" id="1_hjj0r"]
+[ext_resource type="Texture2D" uid="uid://b3cris7q4y3l5" path="res://UI/UI_Gradient_Banner.png" id="1_vgvbl"]
+[ext_resource type="Texture2D" uid="uid://dt0nagsbeh3sx" path="res://UI/Buttons/UI_Flat_Button_Large_Lock_01a1.png" id="1_vijg8"]
+[ext_resource type="Texture2D" uid="uid://dp6j4yw6l4ukh" path="res://UI/Buttons/UI_Flat_Button_Large_Lock_01a2.png" id="2_2hrpg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yflud"]
+texture = ExtResource("1_vijg8")
+texture_margin_left = 8.0
+texture_margin_right = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_euhhd"]
+texture = ExtResource("2_2hrpg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4guqe"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("1_vgvbl")
+region_rect = Rect2(5, 5, 86, 22)
 
 [resource]
 default_font = ExtResource("1_hjj0r")
+Button/colors/font_color = Color(0.352941, 0.192157, 0.317647, 1)
+Button/colors/font_focus_color = Color(0.352941, 0.192157, 0.317647, 1)
+Button/colors/font_hover_color = Color(0.352941, 0.192157, 0.317647, 1)
+Button/colors/font_hover_pressed_color = Color(0.352941, 0.192157, 0.317647, 1)
+Button/colors/font_pressed_color = Color(0.352941, 0.192157, 0.317647, 1)
+Button/font_sizes/font_size = 16
+Button/styles/hover = SubResource("StyleBoxTexture_yflud")
+Button/styles/normal = SubResource("StyleBoxTexture_yflud")
+Button/styles/pressed = SubResource("StyleBoxTexture_euhhd")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_4guqe")

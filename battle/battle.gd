@@ -9,6 +9,7 @@ var turnStack: TurnStack = ReferenceStash.turnStack
 @onready var timer = $Timer
 @onready var player_battle_unit_info = $BattleUI/PlayerBattleUnitInfo
 @onready var enemy_battle_unit_info = $BattleUI/EnemyBattleUnitInfo
+@onready var battle_menu = $BattleUI/BattleMenu
 
 func _ready():
   player_battle_unit_info.stats = player_battle_unit.stats
@@ -39,7 +40,23 @@ func _on_ally_turn_started() -> void:
   print('Ally turn started')
   timer.start(1.0)
   await timer.timeout
-  player_battle_unit.melee_attack(player_battle_unit)
+
+  battle_menu.show()
+  battle_menu.grab_fireball_focus()
+  var option: int = await battle_menu.menu_option_selected
+  match option:
+    battle_menu.FIRE:
+      player_battle_unit.melee_attack(player_battle_unit)
+    battle_menu.LIGHT:
+      print('Lightning hits')
+      turnManager.advance_turn()
+    battle_menu.DRAIN:
+      print('Drain')
+      turnManager.advance_turn()
+
+  battle_menu.hide()
+
+
 
 func _on_enemy_turn_started() -> void:
   if is_instance_valid(enemy_battle_unit) == false or enemy_battle_unit.is_queued_for_deletion():
